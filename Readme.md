@@ -47,7 +47,7 @@ This package provides presets and data types for tags and asset collections. To 
     ##
     # Asset Collections
     ##
-    assetCollectionsUsingPreset:
+    assetCollections:
       # either use type or the options preset, not both
       type: array<Neos\Media\Domain\Model\AssetCollection>
       # options:
@@ -96,3 +96,42 @@ This package provides presets and data types for tags and asset collections. To 
           group: default
 ```
 </details>
+
+Then use the property in your fusion files:
+
+```
+prototype(Vendor.Package:NodeType) < prototype(Neos.Neos:ContentComponent) {
+    # Multiple Tags / Asset Collections
+    tags = ${q(node).property('tags')}
+    assetCollections = ${q(node).property('assetCollections')}
+
+    # Single Tag / Asset Collection
+    tag = ${q(node).property('tag')}
+    assetCollection = ${q(node).property('assetCollection')}
+
+    renderer = afx`
+        <div>
+            <h2>Tags</h2>
+            <Neos.Fusion:Loop items={props.tags}>
+                <p>{tag.label}</p>
+
+                <!-- 
+                    You can access all properties of the tag here, 
+                    even loop through the asset collections
+                -->
+                <Neos.Fusion:Loop items={tag.assetCollections}>
+                    <p>Asset Collection: {assetCollection.title}</p>
+                </Neos.Fusion:Loop>
+            </Neos.Fusion:Loop>
+
+            <!-- Same for asset collections -->
+
+            <!-- Single Tag / Asset Collection -->
+            <h2>Single Tag</h2>
+            <p>{props.tag.label}</p>
+
+            <h2>Single Asset Collection</h2>
+            <p>{props.assetCollection.title}</p>
+        </div>
+    `
+}
