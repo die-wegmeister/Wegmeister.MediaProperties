@@ -1,0 +1,61 @@
+Neos:
+  Neos:
+    nodeTypes:
+      presets:
+        properties:
+          tag:
+            type: Neos\Media\Domain\Model\Tag
+          tags:
+            type: array<Neos\Media\Domain\Model\Tag>
+          collection:
+            type: Neos\Media\Domain\Model\AssetCollection
+          collections:
+            type: array<Neos\Media\Domain\Model\AssetCollection>
+
+    userInterface:
+      inspector:
+        dataTypes:
+          Neos\Media\Domain\Model\Tag:
+            typeConverter: 'Neos\Neos\TypeConverter\EntityToIdentityConverter'
+            editor: Neos.Neos/Inspector/Editors/SelectBoxEditor
+            defaultValue: ~
+            editorOptions:
+              dataSourceIdentifier: dwm-tags
+              dataSourceAdditionalData:
+                assetCollections: []
+              placeholder: Wegmeister.MediaProperties:Main:tag.placeholder
+          array<Neos\Media\Domain\Model\Tag>:
+            typeConverter: Neos\Flow\Property\TypeConverter\TypedArrayConverter
+            editor: Neos.Neos/Inspector/Editors/SelectBoxEditor
+            defaultValue: []
+            editorOptions:
+              dataSourceIdentifier: dwm-tags
+              dataSourceAdditionalData:
+                assetCollections: []
+              multiple: true
+              placeholder: Wegmeister.MediaProperties:Main:tags.placeholder
+
+          Neos\Media\Domain\Model\AssetCollection:
+            typeConverter: 'Neos\Neos\TypeConverter\EntityToIdentityConverter'
+            editor: Neos.Neos/Inspector/Editors/SelectBoxEditor
+            defaultValue: ~
+            editorOptions:
+              dataSourceIdentifier: dwm-collections
+              dataSourceAdditionalData:
+                assetCollections: []
+              placeholder: Wegmeister.MediaProperties:Main:collection.placeholder
+          array<Neos\Media\Domain\Model\AssetCollection>:
+            typeConverter: Neos\Flow\Property\TypeConverter\TypedArrayConverter
+            editor: Neos.Neos/Inspector/Editors/SelectBoxEditor
+            defaultValue: []
+            editorOptions:
+              dataSourceIdentifier: dwm-collections
+              dataSourceAdditionalData:
+                assetCollections: []
+              multiple: true
+              placeholder: Wegmeister.MediaProperties:Main:collections.placeholder
+
+      translation:
+        autoInclude:
+          Wegmeister.MediaProperties:
+            - "Main"

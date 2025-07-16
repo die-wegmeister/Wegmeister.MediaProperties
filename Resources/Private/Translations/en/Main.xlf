@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file original="" product-name="Wegmeister.MediaProperties" source-language="en" datatype="plaintext">
+		<body>
+			<trans-unit id="tag.placeholder" xml:space="preserve">
+				<source>Choose tag</source>
+			</trans-unit>
+			<trans-unit id="tags.placeholder" xml:space="preserve">
+				<source>Choose tags</source>
+			</trans-unit>
+			<trans-unit id="collection.placeholder" xml:space="preserve">
+				<source>Choose collection</source>
+			</trans-unit>
+			<trans-unit id="collections.placeholder" xml:space="preserve">
+				<source>Choose collections</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
