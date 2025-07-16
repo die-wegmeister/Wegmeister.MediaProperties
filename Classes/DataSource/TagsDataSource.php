@@ -72,7 +72,6 @@ class TagsDataSource extends AbstractDataSource
                         return $assetCollection->getTitle();
                     })->toArray()
                 ),
-                // 'value' => $tag->getLabel(),
                 'value' => $this->persistenceManager->getIdentifierByObject($tag),
             ];
         }
