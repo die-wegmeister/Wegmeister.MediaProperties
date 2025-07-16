@@ -2,6 +2,7 @@
     "description": "",
     "type": "neos-package",
     "name": "wegmeister/media-properties",
+    "license": ["GPL-3.0-or-later"],
     "require": {
         "neos/neos": "^8.0"
     },
